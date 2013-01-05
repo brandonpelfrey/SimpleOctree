@@ -38,7 +38,7 @@ void init() {
 
 	// Create a bunch of random points
 	const int nPoints = 1 * 1000 * 1000;
-  for(int i=0; i<nPoints; ++i) {
+	for(int i=0; i<nPoints; ++i) {
 		points.push_back(randVec3());
 	}
 	printf("Created %ld points\n", points.size()); fflush(stdout);
@@ -81,10 +81,10 @@ void testNaive() {
 // Query using Octree
 void testOctree() {
 	double start = stopwatch();
-	
+
 	std::vector<OctreePoint*> results;
 	octree->getPointsInsideBox(qmin, qmax, results);
-	
+
 	double T = stopwatch() - start;
 	printf("testOctree found %ld points in %.5f sec.\n", results.size(), T);
 }
@@ -94,6 +94,6 @@ int main(int argc, char **argv) {
 	init();
 	testNaive();
 	testOctree();
-		
+
 	return 0;
 }
